@@ -1,3 +1,5 @@
-import resources from "/Data/Values/ResourcePrices.json"
+import ResourcePrices from "../Values/ResourcePrices.mjs"
 
+
+console.log(ResourcePrices["Iron Mix"])
 

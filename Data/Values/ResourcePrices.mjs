@@ -1,4 +1,4 @@
-{"Prices":{
+export default {
     "Tire":2000.00,
 	"Tire Rim":1800.0,
 	"Insulated Wire":40.0,
@@ -108,4 +108,3 @@
 	"Refined Gas":0.3,
 	"Steam":0.03
 	}
-}
