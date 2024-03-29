@@ -1,6 +1,6 @@
 import { Item } from "./Item";
 
-class ItemStream extends Item{
+export class ItemStream extends Item{
     constructor(ItemDef, ItemRate){
         super(ItemDef);
         this.ItemRate = ItemRate;
