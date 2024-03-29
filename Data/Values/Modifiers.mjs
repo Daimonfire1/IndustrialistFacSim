@@ -1,6 +1,6 @@
-export { TimeUnits as Time }
+export { TimeUnits }
 
-TimeUnits={
+let TimeUnits={
 	tick:0.5,
     second:1,
     minute:60,

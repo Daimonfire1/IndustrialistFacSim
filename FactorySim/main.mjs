@@ -1,4 +1,4 @@
-import { IOStream } from "../Data/SimObjects/ItemStreams/AdvItemStreams.mjs";
+import { SimRecipe } from "../Data/SimObjects/RecipeHandlers/BasicRecipeDef.mjs";
 
-const bababoe = new IOStream(HeavyOil, 5, 120, minute);
-console.log(bababoe.getItemFlow())
+const bababoe = new SimRecipe([],[["PurpleGoldIngot",400]], 4800, "second");
+console.log(bababoe.totalMoneyFlow(1,'day'))

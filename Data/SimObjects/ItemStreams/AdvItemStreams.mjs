@@ -1,31 +1,25 @@
-import { Time as TimeUnit } from "../Values/Modifiers";
-import { Item } from "./Item";
+import { TimeUnits } from "../../Values/Modifiers.mjs";
+import { Item } from "./Item.mjs";
 
 export class IOStream extends Item
 {
     constructor(ItemDef, Amount, CycleTime, Unit){
         super(ItemDef, Amount)
-        this.Flow = Amount / (CycleTime * TimeUnit[Unit])
+        this.Flow = Amount / (CycleTime * TimeUnits[Unit])
     }
 
-    static TimePerUnit(CycleTime, Unit){
-        return CycleTime * TimeUnit[Unit]
+    #TimePerUnit(CycleTime, Unit){
+        return CycleTime * TimeUnits[Unit]
     }
 
-    static UpdateFlow(Amount, CycleTime, Unit){
-        this.Flow = Amount * this.TimePerUnit(CycleTime, Unit)
+    #UpdateFlow(Amount, CycleTime, Unit){
+        this.Flow = Amount * this.#TimePerUnit(CycleTime, Unit)
     }
 
-    getItemFlow(){
-        return this.Flow
-    }
     getItemFlow(CycleTime, Unit){
-        return this.Flow * TimePerUnit(CycleTime, Unit)
+        return this.Flow * this.#TimePerUnit(CycleTime, Unit)
     }
 
-    getMoneyFlow(){
-        return this.getItemFlow() * this.Value
-    }
     getMoneyFlow(CycleTime, Unit){
         return this.getItemFlow(CycleTime, Unit) * this.Value
     }
@@ -33,6 +27,6 @@ export class IOStream extends Item
     updateInternals(ItemDef, Amount, CycleTime, Unit){
         super.setnewitem(ItemDef)
         super.setnewamount(Amount)
-        this.UpdateFlow(Amount, CycleTime, Unit)
+        this.#UpdateFlow(Amount, CycleTime, Unit)
     }
 }

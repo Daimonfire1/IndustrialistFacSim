@@ -1,4 +1,6 @@
-export default {
+export { ResourcePrices }
+
+let ResourcePrices = {
     Tire:2000.00,
 	TireRim:1800.0,
 	InsulatedWire:40.0,
