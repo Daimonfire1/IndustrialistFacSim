@@ -1,4 +1,4 @@
-import { IOStream } from "../ItemStreams/AdvItemStreams";
+import { IOStream } from "../ItemStreams/AdvItemStreams.mjs";
 
 export class SimRecipe{
     constructor(InputItems, OutputItems, CycleTime, Unit){

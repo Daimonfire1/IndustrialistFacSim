@@ -1,4 +1,4 @@
-import { Item } from "./Item";
+import { Item } from "./Item.mjs";
 
 export class ItemStream extends Item{
     constructor(ItemDef, ItemRate){

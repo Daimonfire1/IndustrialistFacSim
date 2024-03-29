@@ -1,4 +1,4 @@
-import { TimeUnit } from "../Values/Modifiers";
+import { Time as TimeUnit } from "../Values/Modifiers";
 import { Item } from "./Item";
 
 export class IOStream extends Item
