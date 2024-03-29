@@ -1,18 +1,20 @@
-import { ItemStream } from "./ItemStream";
 import { TimeUnit } from "../Values/Modifiers";
+import { Item } from "./Item";
 
-export class IOStream extends ItemStream{
+export class IOStream extends Item
+{
     constructor(ItemDef, Amount, CycleTime, Unit){
+        super(ItemDef, Amount)
         this.Flow = Amount / (CycleTime * TimeUnit[Unit])
-        super(ItemDef, this.Flow)
+        
         this.CycleTime = CycleTime
     }
 
-    get ItemFlow(Unit){
+    static getItemFlow(Unit){
         return this.Flow * TimeUnit[Unit]
     }
 
-    get MoneyFlow(Unit){
-        return this.ItemFlow(Unit) * this.Value()
+    static getMoneyFlow(Unit){
+        return this.getItemFlow(Unit) * this.Value()
     }
 }
