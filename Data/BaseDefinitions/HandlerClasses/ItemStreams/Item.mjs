@@ -1,4 +1,4 @@
-import { ResourcePrices } from "../../Values/ResourcePrices.mjs";
+import { ResourcePrices } from "../../../Values/ResourcePrices.mjs";
 
 export class Item
 {

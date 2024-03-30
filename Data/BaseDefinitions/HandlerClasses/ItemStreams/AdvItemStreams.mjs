@@ -1,4 +1,4 @@
-import { TimeUnits } from "../../Values/Modifiers.mjs";
+import { TimeUnits } from "../../../Values/Modifiers.mjs";
 import { Item } from "./Item.mjs";
 
 export class IOStream extends Item
@@ -25,8 +25,8 @@ export class IOStream extends Item
     }
 
     updateInternals(ItemDef, Amount, CycleTime, Unit){
-        super.setnewitem(ItemDef)
-        super.setnewamount(Amount)
+        this.setnewitem(ItemDef)
+        this.setnewamount(Amount)
         this.#UpdateFlow(Amount, CycleTime, Unit)
     }
 }

@@ -1,4 +1,4 @@
-export {TimeUnits, MFUnits, MetricUnits, PollutionUnits}
+export { MFUnits, MetricUnits, PollutionUnits, TimeUnits }
 
 let TimeUnits={
 	tick:0.5,
@@ -22,16 +22,16 @@ let MetricUnits={
 }
 
 let MFUnits={
-    nMF:nano, 
-    hMF:mikro, 
-    mMF:milli,
-    MF:norm, 
-    kMF:kilo,
-    MMF:mega, 
-    GMF:giga, 
-    TMF:terra, 
-    PMF:peta, 
-    EMF:exa
+    nMF:"nano", 
+    hMF:"mikro", 
+    mMF:"milli",
+    MF:"norm", 
+    kMF:"kilo",
+    MMF:"mega", 
+    GMF:"giga", 
+    TMF:"terra", 
+    PMF:"peta", 
+    EMF:"exa"
 }
 
 let PollutionUnits={

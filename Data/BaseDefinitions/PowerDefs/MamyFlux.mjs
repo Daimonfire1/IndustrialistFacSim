@@ -1,4 +1,4 @@
-import { MFConvert, metricconvert } from "../../Util/UnitConverters.mjs";
+import { MFConvert } from "../../Util/UnitConverters.mjs";
 
 
 export class MamyFlux{
@@ -9,7 +9,7 @@ export class MamyFlux{
 
     setAmount(Var1, PotV2){
 		if(Var1 instanceof MamyFlux){
-            PotV2 = Var1.getOrigUnit()
+            PotV2 = Var1.getUnit()
             Var1 = Var1.getAmount(PotV2)
         }
         this.Amount = Var1
@@ -23,4 +23,9 @@ export class MamyFlux{
 			return new MamyFlux(this.Amount, this.Unit)
         }
     }
+
+    getUnit(){
+        return this.Unit
+    }
+
 }

@@ -19,5 +19,44 @@ export class SimRecipe{
     totalMoneyFlow(CycleTime, Unit){
         return this.getMoneyFlowOut(CycleTime, Unit)-this.getMoneyFlowIn(CycleTime, Unit)
     }
+
+    getInputItems(ItemDef){
+        if(ItemDef !== undefined){
+            for (const InStream of this.InputItems) {
+                if (InStream.getItemDef == ItemDef) {
+                    return InStream
+                }
+            }
+        }else{
+            return this.InputItems
+        }
+    }
+
+    getOutputItems(ItemDef){
+        if(ItemDef !== undefined){
+            for (const OutStream of this.OutputItems) {
+                if (OutStream.getItemDef == ItemDef) {
+                    return OutStream
+                }
+            }
+        }else{
+            return this.OutputItems
+        }
+    }
+
+    setInputItems(InputItems, CycleTime, Unit){
+        this.InputItems = Array.from(InputItems, (StreamValues) => 
+            new IOStream(StreamValues[0],StreamValues[1],CycleTime,Unit));
+    }
+
+    setOutputItems(OutputItems, CycleTime, Unit){
+        this.OutputItems = Array.from(OutputItems, (StreamValues) => 
+            new IOStream(StreamValues[0],StreamValues[1],CycleTime,Unit));
+    }
+
+    updateItems(InputItems, OutputItems, CycleTime, Unit){
+        this.setInputItems(InputItems, CycleTime, Unit)
+        this.setOutputItems(OutputItems, CycleTime, Unit)
+    }
     
 }
