@@ -3,7 +3,7 @@ import { SimRecipe } from "./BasicRecipeDef.mjs";
 
 
 export class AdvSimRecipe extends SimRecipe{
-    constructor(InputItems, OutputItems, CycleTime, Unit, PowerDef, PollutionDef){
+    constructor(InputItems, OutputItems, CycleTime, Unit, PowerDef){
         super(InputItems, OutputItems, CycleTime, Unit)
         if(PowerDef instanceof MamyFluxStream){
             this.PowerDef = PowerDef
@@ -16,7 +16,6 @@ export class AdvSimRecipe extends SimRecipe{
         }else{
             throw new Error("PowerDef has invalid Args! Either provide a MFStream class or a 4-long Array")
         }
-        this.PollutionDef = PollutionDef
     }
 
 
@@ -32,6 +31,9 @@ export class AdvSimRecipe extends SimRecipe{
         }else{
             throw new Error("PowerDef has invalid Args! Either provide a MFStream class or a 4-long Array")
         }
+    }
+    getPowerDef(){
+        return this.PowerDef
     }
 
 }
