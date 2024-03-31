@@ -4,6 +4,11 @@ import { Item } from "./Item.mjs";
 export class IOStream extends Item
 {
     constructor(ItemDef, Amount, CycleTime, Unit){
+        if(Amount instanceof String){
+            let _temp = ItemDef
+            ItemDef = Amount
+            Amount = _temp
+        }
         super(ItemDef, Amount)
         this.Flow = Amount / (CycleTime * TimeUnits[Unit])
     }
