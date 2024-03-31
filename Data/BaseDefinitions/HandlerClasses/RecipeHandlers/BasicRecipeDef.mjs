@@ -27,6 +27,7 @@ export class SimRecipe{
                     return InStream
                 }
             }
+            return false
         }else{
             return this.InputItems
         }
@@ -39,6 +40,7 @@ export class SimRecipe{
                     return OutStream
                 }
             }
+            return false
         }else{
             return this.OutputItems
         }

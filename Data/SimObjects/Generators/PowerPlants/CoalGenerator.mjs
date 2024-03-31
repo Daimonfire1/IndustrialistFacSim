@@ -3,8 +3,8 @@ import { RecipeSimulator } from "../../../BaseDefinitions/AbstractDefs/RecipeSim
 import { AdvSimRecipe } from "../../../BaseDefinitions/HandlerClasses/RecipeHandlers/AdvancedRecipeDef.mjs";
 import { MamyFluxStream } from "../../../BaseDefinitions/PowerDefs/MamyFluxStream.mjs";
 
-let SolarPanel1Power = new MamyFluxStream(-264, "MF", 1, "second")
-let SolarPanel1Recipe = new AdvSimRecipe([], [], 1, "second", SolarPanel1Power)
-let SolarPanel1 = new AbstractMachine(80, 2, 2, [1, "kMF"], [0, "PP/H"])
+let CoalGenPower = new MamyFluxStream(-4.5, "kMF", 1, "second")
+let CoalGenRecipe = new AdvSimRecipe([["Coal", 0.5], ["Water", 0.5]], [["Steam", 0.3]], 2, "second", CoalGenPower)
+let CoalGen = new AbstractMachine(160, 2, 2, [50, "kMF"], [270, "PP/H"])
 
-export let SolarPanel1Sim = new RecipeSimulator(SolarPanel1, SolarPanel1Recipe)
+export let CoalGenSim = new RecipeSimulator(CoalGen, CoalGenRecipe)
