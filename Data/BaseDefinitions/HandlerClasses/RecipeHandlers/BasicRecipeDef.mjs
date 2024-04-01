@@ -23,7 +23,7 @@ export class SimRecipe{
     getInputItems(ItemDef){
         if(ItemDef !== undefined){
             for (const InStream of this.InputItems) {
-                if (InStream.getItemDef == ItemDef) {
+                if (InStream.getItemDef() == ItemDef) {
                     return InStream
                 }
             }
@@ -36,7 +36,7 @@ export class SimRecipe{
     getOutputItems(ItemDef){
         if(ItemDef !== undefined){
             for (const OutStream of this.OutputItems) {
-                if (OutStream.getItemDef == ItemDef) {
+                if (OutStream.getItemDef() == ItemDef) {
                     return OutStream
                 }
             }
