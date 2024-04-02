@@ -6,7 +6,7 @@ import { AdvSimRecipe } from "../../../BaseDefinitions/HandlerClasses/RecipeHand
 let WaterPump2Recipe = new AdvSimRecipe([[]], [["Water", 30]], 5.2, "second", [770, "MF", 1, "second"])
 
 
-let WaterPump2 = new AbstractMachine(6000, 4, 4, [50, "kMF"], [0, "PP/H"])
+let WaterPump2 = new AbstractMachine("Water Pump 2" , 6000, 4, 4, [50, "kMF"], [0, "PP/H"])
 
 
 export let WaterPump2Sim = new RecipeSimulator(WaterPump2, WaterPump2Recipe)

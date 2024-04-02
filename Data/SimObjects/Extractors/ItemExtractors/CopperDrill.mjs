@@ -6,7 +6,7 @@ import { AdvSimRecipe } from "../../../BaseDefinitions/HandlerClasses/RecipeHand
 let CopperDrillRecipe = new AdvSimRecipe([[]], [["RawCopper", 1]], 9, "second", [360, "MF", 1, "second"])
 
 
-let CopperDrill = new AbstractMachine(190, 6, 2, [1.5, "kMF"], [108, "PP/H"])
+let CopperDrill = new AbstractMachine("Copper Drill",190, 6, 2, [1.5, "kMF"], [108, "PP/H"])
 
 
 export let CopperDrillSim = new RecipeSimulator(CopperDrill, CopperDrillRecipe)

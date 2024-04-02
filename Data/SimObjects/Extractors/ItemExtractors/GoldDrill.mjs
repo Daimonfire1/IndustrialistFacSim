@@ -2,8 +2,9 @@ import { AbstractMachine } from "../../../BaseDefinitions/AbstractDefs/AbstractM
 import { RecipeSimulator } from "../../../BaseDefinitions/AbstractDefs/RecipeSimulator.mjs";
 import { AdvSimRecipe } from "../../../BaseDefinitions/HandlerClasses/RecipeHandlers/AdvancedRecipeDef.mjs";
     
-let LNGRecipe = new AdvSimRecipe([["RefinedGas", 120]], [["LNG", 3.6]], 1, "second", [1.9, "MMF", 1, "second"])
+let GoldDrilling = new AdvSimRecipe([], [["Gold10", 0.1]], 30, "second", [900, "kMF", 1, "second"])
     
-let LNGPlant = new AbstractMachine("LNG Plant", 500000, 14, 22, [2.5, "MMF"], [0, "PP/H"])
+let GoldDrill = new AbstractMachine("Gold Drill", 25000, 6, 2, [1.5, "MMF"], [0, "PP/H"]) //pollution not confirmed
     
-export let LNGPlantSim = new RecipeSimulator(LNGPlant, LNGRecipe)
+export let GoldDrillSim = new RecipeSimulator(GoldDrill, GoldDrilling
+)

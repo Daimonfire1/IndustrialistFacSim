@@ -16,7 +16,7 @@ let PurpleGoldAlloying240 = new AdvSimRecipe([["GoldIngot", 1],["AluminiumIngot"
 let PurpleGoldAlloying300 = new AdvSimRecipe([["GoldIngot", 1],["AluminiumIngot",2],["Steam300c",200]], [["MoltenPurpleGold", 2]], 20, "second", [150, "kMF", 1, "second"])
 let PurpleGoldAlloying400 = new AdvSimRecipe([["GoldIngot", 1],["AluminiumIngot",2],["Steam400c",200]], [["MoltenPurpleGold", 2]], 10, "second", [150, "kMF", 1, "second"])
     
-let Alloyer = new AbstractMachine(999999, 6, 10, [7, "MMF"], [324, "PP/H"])
+let Alloyer = new AbstractMachine("Alloyer",999999, 6, 10, [7, "MMF"], [324, "PP/H"])
     
 export let Aluminum100AlloyerSim = new RecipeSimulator(Alloyer, AluminumAlloying100)
 export let Aluminum120AlloyerSim = new RecipeSimulator(Alloyer, AluminumAlloying120)

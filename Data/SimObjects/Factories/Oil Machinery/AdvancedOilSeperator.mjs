@@ -7,7 +7,7 @@ let AdvancedHeavyOilSeperation = new AdvSimRecipe([["Steam", 500],["HeavyOil",40
 let AdvancedFrackingOilSeperation = new AdvSimRecipe([["Steam", 500],["FrackingOil",40]], [["Residue", 15],["HeavyOil",20]], 10, "second", [2.5, "MMF", 1, "second"])
 let AdvancedLightOilSeperation = new AdvSimRecipe([["Steam", 500],["LightOil",40]], [["Residue", 15],["HydrogenSulfide",6],["HeavyOil",10]], 10, "second", [2.5, "MMF", 1, "second"])
     
-let AdvancedOilSeperator = new AbstractMachine(1250000, 22, 22, [25, "MMF"], [3000, "PP/H"]) //POLLUTION NOT CONFIRMED
+let AdvancedOilSeperator = new AbstractMachine("Advanced Oil Seperator",1250000, 22, 22, [25, "MMF"], [3000, "PP/H"]) //POLLUTION NOT CONFIRMED
     
 export let AdvancedCrudeOilSeperatorSim = new RecipeSimulator(AdvancedOilSeperator, AdvancedCrudeOilSeperation)
 export let AdvancedHeavyOilSeperatorSim = new RecipeSimulator(AdvancedOilSeperator, AdvancedHeavyOilSeperation)

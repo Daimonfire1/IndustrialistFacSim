@@ -16,7 +16,7 @@ let IndustrialIronIngotRolling = new AdvSimRecipe([["IronIngot", 2]], [["Nail", 
 let IndustrialFerroAluminumRolling = new AdvSimRecipe([["FerroAluminiumIngot", 2]], [["FerroAluminiumMagnet", 1]], 8, "second", [750, "MF", 1, "second"])
 
 
-let IndustrialRoller = new AbstractMachine(150000, 4, 2, [250, "kMF"], [0, "PP/H"])
+let IndustrialRoller = new AbstractMachine("Industrial Roller", 150000, 4, 2, [250, "kMF"], [0, "PP/H"])
 
 
 export let IndustrialRollerCopperWireSim = new RecipeSimulator(IndustrialRoller, IndustrialCopperPlateRolling)

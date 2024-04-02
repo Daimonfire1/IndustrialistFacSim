@@ -2,7 +2,8 @@ import { MamyFlux } from "../PowerDefs/MamyFlux.mjs"
 
 
 export class AbstractMachine{
-    constructor(Cost, Width, Length, PowerCapacity, PollutionDef){
+    constructor(Name, Cost, Width, Length, PowerCapacity, PollutionDef){
+        this.Name = Name
         this.Cost = Cost
         this.Width = Width
         this.Length = Length
@@ -23,6 +24,10 @@ export class AbstractMachine{
 
     #recalcSurface(){
         this.Surface = this.Width * this.Length
+    }
+
+    getName(){
+        return this.Name
     }
 
     getCost(){

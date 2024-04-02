@@ -7,7 +7,7 @@ let PoorDieselRefining = new AdvSimRecipe([["PoorQualityDiesel", 3],["MachineOil
 let DieselRefining = new AdvSimRecipe([["Diesel", 3],["MachineOil",0.15]], [["RefinedDiesel", 2.7],["Residue",0.3]], 1, "second", [1.2, "MMF", 1, "second"])
 let RefinedDieselRefining = new AdvSimRecipe([["RefinedDiesel", 3],["MachineOil",0.15]], [["Gasoline", 2.7],["Residue",0.3]], 1, "second", [1.2, "MMF", 1, "second"])
     
-let AdvancedDieselRefinery = new AbstractMachine(10000, 14, 14, [1.5, "MMF"], [216, "PP/H"]) //POLLUTION NOT CONFIRMED
+let AdvancedDieselRefinery = new AbstractMachine("Advanced Diesel Refinery", 10000, 14, 14, [1.5, "MMF"], [216, "PP/H"]) //POLLUTION NOT CONFIRMED
     
 export let CrudeAdvancedDieselRefinerySim = new RecipeSimulator(AdvancedDieselRefinery, CrudeDieselRefining)
 export let PoorAdvancedDieselRefinerySim = new RecipeSimulator(AdvancedDieselRefinery, PoorDieselRefining)

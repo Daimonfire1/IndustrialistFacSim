@@ -6,7 +6,7 @@ let RichSoilRefining = new AdvSimRecipe([["AceticAcid",2],["Water",6],["SoilRich
 let SulfurRichSoilRefining = new AdvSimRecipe([["SulfuricAcid",4],["Water",4],["SoilRich", 1]], [["Residue",8],["Gold18", 1]], 5, "second", [100, "kMF", 1, "second"])
 let Gold12Refining = new AdvSimRecipe([["AceticAcid",2],["Water",6],["Gold12", 1]], [["Residue",8],["Gold18", 1]], 5, "second", [100, "kMF", 1, "second"])
     
-let GoldAcidRefinery = new AbstractMachine(1000000, 10, 18, [510, "kMF"], [216, "PP/H"])
+let GoldAcidRefinery = new AbstractMachine("Gold Acid Refinery", 1000000, 10, 18, [510, "kMF"], [216, "PP/H"])
     
 export let RichSoilAcidRefinerySim = new RecipeSimulator(GoldAcidRefinery, RichSoilRefining)
 export let RichSoilSulfurRefinerySim = new RecipeSimulator(GoldAcidRefinery, SulfurRichSoilRefining)
