@@ -8,7 +8,7 @@ let ResidueBottling = new AdvSimRecipe([["Residue", 8],["Bottle",1]], [["Residue
 let RefinedDieselBottling = new AdvSimRecipe([["RefinedDiesel", 8],["Bottle",1]], [["RefinedDieselBottle", 1]], 3.5, "second", [2860, "MF", 1, "second"])
 let CrudeOilBottling = new AdvSimRecipe([["CrudeOil", 8],["Bottle",1]], [["OilBottle", 1]], 3.5, "second", [2860, "MF", 1, "second"])
     
-let BottlingPlant = new AbstractMachine(100000, 6, 8, [1, "MMF"], [0, "PP/H"])
+let BottlingPlant = new AbstractMachine("Bottling Plant", 100000, 6, 8, [1, "MMF"], [0, "PP/H"])
     
 export let FilteredWaterBottlingPlantSim = new RecipeSimulator(BottlingPlant, FilteredWaterBottling)
 export let WaterBottlingPlantSim = new RecipeSimulator(BottlingPlant, WaterBottling)

@@ -7,7 +7,7 @@ let OilBoilerRecipe = new AdvSimRecipe([["CrudeOil", 0.6]], [["HotCrudeOil", 0.6
 let WaterBoilerRecipe = new AdvSimRecipe([["Water", 0.6]], [["Water100c", 0.6]], 1, "second", [10, "kMF", 1, "second"])
 
 
-let LiquidBoiler = new AbstractMachine(900, 4, 6, [30, "kMF"], [184, "PP/H"])
+let LiquidBoiler = new AbstractMachine("Liquid Boiler", 900, 4, 6, [30, "kMF"], [184, "PP/H"])
 
 
 export let OilBoilerSim = new RecipeSimulator(LiquidBoiler, OilBoilerRecipe)

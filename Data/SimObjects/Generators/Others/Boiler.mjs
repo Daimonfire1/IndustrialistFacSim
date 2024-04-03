@@ -12,7 +12,7 @@ let Water300Boil = new AdvSimRecipe([["Water", 3],["Water300c", 3]], [["Steam300
 let Water400Boil = new AdvSimRecipe([["Water", 3],["Water400c", 3]], [["Steam400c", 90],["Water", 3]], 1, "second", [0, "MF", 1, "second"])
 
 
-let Boiler = new AbstractMachine(900, 6, 8, [0, "MF"], [0, "PP/H"])
+let Boiler = new AbstractMachine("Boiler", 900, 6, 8, [0, "MF"], [0, "PP/H"])
 
 
 export let BoilerSim = new RecipeSimulator(Boiler, WaterBoil)

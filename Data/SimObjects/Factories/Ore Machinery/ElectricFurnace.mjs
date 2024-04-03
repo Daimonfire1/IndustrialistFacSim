@@ -16,7 +16,7 @@ let CopperMixRecipe = new AdvSimRecipe([["CopperMix", 2.67]], [["LiquidCopper", 
 let IronMixRecipe = new AdvSimRecipe([["IronMix", 3.2]], [["LiquidIron", 7]], 5, "second", [240, "MF", 1, "second"])
 
 
-let ElectricFurnace = new AbstractMachine(190, 6, 6, [15, "kMF"], [158, "PP/H"])
+let ElectricFurnace = new AbstractMachine("Electric Furnace", 190, 6, 6, [15, "kMF"], [158, "PP/H"])
 
 
 export let ElectricFurnaceRawCopperSim = new RecipeSimulator(ElectricFurnace, RawCopperRecipe)

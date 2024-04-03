@@ -18,7 +18,7 @@ let BauxiteGrind = new AdvSimRecipe([["BauxiteResidue", 8]], [["BauxiteCrushed",
 let AluminaGrind = new AdvSimRecipe([["Alumina", 4]], [["AluminaDust", 4]], 12, "second", [33, "kMF", 1, "second"])
 
 
-let Grinder = new AbstractMachine(100000, 3, 6, [500, "kMF"], [0, "PP/H"])
+let Grinder = new AbstractMachine("Grinder", 10000, 3, 6, [500, "kMF"], [0, "PP/H"])
 
 
 export let GrinderCoalGrind = new RecipeSimulator(Grinder, CoalGrind)

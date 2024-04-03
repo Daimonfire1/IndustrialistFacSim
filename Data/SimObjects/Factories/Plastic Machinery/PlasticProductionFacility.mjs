@@ -4,6 +4,6 @@ import { AdvSimRecipe } from "../../../BaseDefinitions/HandlerClasses/RecipeHand
     
 let PlasticPelletProduction = new AdvSimRecipe([["MEG", 1],["PTA", 1]], [["PlasticPellet", 80]], 6.67, "second", [80, "kMF", 1, "second"])
     
-let PlasticProductionFacility = new AbstractMachine(100000, 8, 15, [2.5, "MMF"], [999, "PP/H"]) //NOT CONFIRMED
+let PlasticProductionFacility = new AbstractMachine("Plastic Production Facility", 100000, 8, 15, [2.5, "MMF"], [999, "PP/H"]) //NOT CONFIRMED
     
 export let PlasticProductionFacilitySim = new RecipeSimulator(PlasticProductionFacility, PlasticPelletProduction)

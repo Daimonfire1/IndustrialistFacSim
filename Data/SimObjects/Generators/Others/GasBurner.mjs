@@ -6,7 +6,7 @@ import { AdvSimRecipe } from "../../../BaseDefinitions/HandlerClasses/RecipeHand
 let GasBurnerRecipe = new AdvSimRecipe([["Water", 30],["RefinedGas", 30]], [["Water400c", 30]], 1, "second", [0, "MF", 1, "second"])
 
 
-let GasBurner = new AbstractMachine(100000, 5, 4, [0, "MF"], [173, "PP/H"])
+let GasBurner = new AbstractMachine("Gas Burner", 100000, 5, 4, [0, "MF"], [173, "PP/H"])
 
 
 export let GasBurnerSim = new RecipeSimulator(GasBurner, GasBurnerRecipe)

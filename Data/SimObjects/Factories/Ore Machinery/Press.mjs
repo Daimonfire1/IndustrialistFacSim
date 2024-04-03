@@ -14,7 +14,7 @@ let PlankPressing = new AdvSimRecipe([["Planks", 1]], [["PlankSquared", 0.25]], 
 let IronPlatePressing = new AdvSimRecipe([["IronPlate", 1]], [["IronPlateSquared", 0.25]], 5.1, "second", [59, "MF", 1, "second"])
 
 
-let Press = new AbstractMachine(409, 4, 2, [250, "kMF"], [0, "PP/H"])
+let Press = new AbstractMachine("Press", 409, 4, 2, [250, "kMF"], [0, "PP/H"])
 
 
 export let PressCopperIngotSim = new RecipeSimulator(Press, CopperIngotPressing)

@@ -16,7 +16,7 @@ let LargeTurbineRecipe300 = new AdvSimRecipe([[90, "Steam300c"]], [[3, "Water"]]
 let LargeTurbineRecipe400 = new AdvSimRecipe([[90, "Steam400c"]], [[3, "Water"]], 1, "second", [-468, "kMF", 1, "second"])
 
 
-let LargeTurbine = new AbstractMachine(4000, 5, 4, [100, "kMF"], [0, "PP/H"])
+let LargeTurbine = new AbstractMachine("Large Turbine", 4000, 5, 4, [100, "kMF"], [0, "PP/H"])
 
 export let LargeTurbineRecipe100Sim = new RecipeSimulator(LargeTurbine, LargeTurbineRecipe100)
 export let LargeTurbineRecipe120Sim = new RecipeSimulator(LargeTurbine, LargeTurbineRecipe120)

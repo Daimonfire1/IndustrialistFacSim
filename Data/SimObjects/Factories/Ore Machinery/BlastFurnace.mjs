@@ -13,7 +13,7 @@ let CokeIronMixSmelting = new AdvSimRecipe([["CokeFuel", 1.5],["IronMix",4]], [[
 let CokeIronPowderSmelting = new AdvSimRecipe([["CokeFuel", 1],["IronPowder",4.8]], [["IronMix", 12.8]], 5, "second", [15, "kMF", 1, "second"])
 let CokeCopperPowderSmelting = new AdvSimRecipe([["CokeFuel", 1],["CopperPowder",7.98]], [["CopperMix", 21.28]], 5, "second", [15, "kMF", 1, "second"])
     
-let BlastFurnace = new AbstractMachine(60000, 8, 8, [5, "MMF"], [216, "PP/H"])
+let BlastFurnace = new AbstractMachine("Blast Furnace", 60000, 8, 8, [5, "MMF"], [216, "PP/H"])
     
 export let CoalIronIngotBlastingSim = new RecipeSimulator(BlastFurnace, CoalIronIngotSmelting)
 export let CoalIronMixBlastingSim = new RecipeSimulator(BlastFurnace, CoalIronMixSmelting)

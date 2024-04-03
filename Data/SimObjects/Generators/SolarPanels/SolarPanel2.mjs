@@ -7,6 +7,6 @@ import { MamyFluxStream } from "../../../BaseDefinitions/PowerDefs/MamyFluxStrea
 
 let SolarPanel2Power = new MamyFluxStream(-1.35, "kMF", 1, "second")
 let SolarPanel2Recipe = new AdvSimRecipe([], [], 1, "second", SolarPanel2Power)
-let SolarPanel2 = new AbstractMachine(1500, 2, 4, [5, "kMF"], [0, "PP/H"])
+let SolarPanel2 = new AbstractMachine("Solar Panel 2", 1500, 2, 4, [5, "kMF"], [0, "PP/H"])
 
 export let SolarPanel2Sim = new RecipeSimulator(SolarPanel2, SolarPanel2Recipe)

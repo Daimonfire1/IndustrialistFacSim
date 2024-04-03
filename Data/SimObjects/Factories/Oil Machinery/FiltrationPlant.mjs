@@ -9,7 +9,7 @@ let RefinedDieselFiltration = new AdvSimRecipe([["RefinedDiesel", 4]], [["Machin
 let ResidueMitosis = new AdvSimRecipe([["Residue", 4]], [["Residue", 4.4]], 2, "second", [7.5, "kMF", 1, "second"])
 let HeavyOilFiltration = new AdvSimRecipe([["HeavyOil", 4]], [["CrudeOil", 3]], 2, "second", [7.5, "kMF", 1, "second"])
     
-let FiltrationPlant = new AbstractMachine(20000, 8, 8, [250, "kMF"], [0, "PP/H"])
+let FiltrationPlant = new AbstractMachine("Filtration Plant", 20000, 8, 8, [250, "kMF"], [0, "PP/H"])
     
 export let WaterFiltrationSim = new RecipeSimulator(FiltrationPlant, WaterFiltration)
 export let WaterUnFiltrationSim = new RecipeSimulator(FiltrationPlant, WaterUnFiltration)

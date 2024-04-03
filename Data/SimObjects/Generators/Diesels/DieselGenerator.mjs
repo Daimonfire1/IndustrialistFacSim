@@ -11,7 +11,7 @@ let DieselGenRecipeNormal = new AdvSimRecipe([["Diesel", 0.1]], [], 7.66, "secon
 
 let DieselGenRecipeRefined = new AdvSimRecipe([["RefinedDiesel", 0.1]], [], 10.33, "second", [-90, "kMF", 1, "second"])
 
-let DieselGen = new AbstractMachine(4000, 8, 4, [250, "kMF"], [648, "PP/H"])
+let DieselGen = new AbstractMachine("Diesel Generator", 4000, 8, 4, [250, "kMF"], [648, "PP/H"])
 
 export let DieselGenSimCrude = new RecipeSimulator(DieselGen, DieselGenRecipeCrude)
 export let DieselGenSimPoor = new RecipeSimulator(DieselGen, DieselGenRecipePoor)

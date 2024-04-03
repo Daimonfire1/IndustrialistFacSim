@@ -18,7 +18,7 @@ let AluminaSmelt = new AdvSimRecipe([["AluminaDust", 1]], [["LiquidAluminium", 1
 let SandSmelt = new AdvSimRecipe([["Sand", 2]], [["LiquidGlass", 1]], 5, "second", [200, "kMF", 1, "second"])
 
 
-let IndustrialElectricFurnace = new AbstractMachine(1000000, 6, 6, [1.1, "MMF"], [158, "PP/H"])
+let IndustrialElectricFurnace = new AbstractMachine("Industrial Electric Furnace", 1000000, 6, 6, [1.1, "MMF"], [158, "PP/H"])
 
 
 export let IndustrialElectricFurnaceGold8kSmelt = new RecipeSimulator(IndustrialElectricFurnace, Gold8kSmelt)

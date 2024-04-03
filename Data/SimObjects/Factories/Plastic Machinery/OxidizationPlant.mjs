@@ -7,7 +7,7 @@ let EthyleneOxidizing = new AdvSimRecipe([["Ethylene", 24]], [["MEG", 18]], 20, 
 let HydrogenSulfideOxidizing = new AdvSimRecipe([["HydrogenSulfide", 24]], [["LiquidSulfur", 30]], 20, "second", [500, "kMF", 1, "second"])
 let SulfurDioxideOxidizing = new AdvSimRecipe([["SulfurDioxide", 40]], [["SulfurTrioxide", 40]], 12, "second", [1, "MMF", 1, "second"])
     
-let OxidizationPlant = new AbstractMachine(200000, 12, 16, [25, "MMF"], [0, "PP/H"])
+let OxidizationPlant = new AbstractMachine("Oxidization Plant", 200000, 12, 16, [25, "MMF"], [0, "PP/H"])
     
 export let EthanolOxidizationPlantSim = new RecipeSimulator(OxidizationPlant, EthanolOxidizing)
 export let EthyleneOxidizationPlantSim = new RecipeSimulator(OxidizationPlant, EthyleneOxidizing)

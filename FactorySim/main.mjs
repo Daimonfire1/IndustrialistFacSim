@@ -17,13 +17,16 @@ console.log("INFO: We are booting bois!")
 console.log("Fetching all definitions")
 
 import * as BatchedSimData from "../Bundler.mjs";
+import { RecipeSimulator } from '../Data/BaseDefinitions/AbstractDefs/RecipeSimulator.mjs';
 
 console.log("Unpacking Data...")
 
-const DataArray = []
-
+const DataArray = [[instanceof String, RecipeSimulator]]
+Da
 for (const ArraySimPair of Object.entries(BatchedSimData)) {
-    DataArray.push([ArraySimPair[0],ArraySimPair[1]])
+    if(ArraySimPair[0] instanceof String & ArraySimPair[1] instanceof RecipeSimulator){
+    	DataArray.push([ArraySimPair[0],ArraySimPair[1]])
+    }
 }
 
 console.log("Unpacked and restructured "+DataArray.length+" batches of Data")
@@ -53,6 +56,8 @@ DataArray.find
 
     resolveproduction[0][1].getRecipeDef().getPowerDef()
     
+    DataArray[0][1].
+
 //}
 
 rl.close();

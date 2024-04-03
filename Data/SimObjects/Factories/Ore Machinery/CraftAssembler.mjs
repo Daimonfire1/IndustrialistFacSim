@@ -18,7 +18,7 @@ let GearboxRecipe = new AdvSimRecipe([["PlasticCasing", 2],["Crankshaft", 1]], [
 let ToyRecipe = new AdvSimRecipe([["BlackDye", 6],["Planks", 3]], [["Toy", 1]], 17.2, "second", [3488, "MF", 1, "second"])
 
 
-let CraftAssembler = new AbstractMachine(1000, 8, 4, [250, "kMF"], [0, "PP/H"])
+let CraftAssembler = new AbstractMachine("Craft Assembler", 1000, 8, 4, [250, "kMF"], [0, "PP/H"])
 
 
 export let ChairCraftSim = new RecipeSimulator(CraftAssembler, ChairRecipe)

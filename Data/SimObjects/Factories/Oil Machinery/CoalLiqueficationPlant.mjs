@@ -9,7 +9,7 @@ let CoalLiquefication240c = new AdvSimRecipe([["Coal", 40],["CrudeOil",10],["Ste
 let CoalLiquefication300c = new AdvSimRecipe([["Coal", 40],["CrudeOil",10],["Steam300c",200]], [["Residue", 10],["HeavyOil",40],["LightOil",30]], 20, "second", [1, "MMF", 1, "second"])
 let CoalLiquefication400c = new AdvSimRecipe([["Coal", 40],["CrudeOil",10],["Steam400c",200]], [["Residue", 10],["HeavyOil",40],["LightOil",30]], 10, "second", [1, "MMF", 1, "second"])
     
-let CoalLiqueficationPlant = new AbstractMachine(750000, 20, 20, [25, "MMF"], [5000, "PP/H"]) //POLLUTION NOT CONFIRMED
+let CoalLiqueficationPlant = new AbstractMachine("Coal Liquefication Plant", 750000, 20, 20, [25, "MMF"], [5000, "PP/H"]) //POLLUTION NOT CONFIRMED
     
 export let CoalLiqueficationPlant100Sim = new RecipeSimulator(CoalLiqueficationPlant, CoalLiquefication100c)
 export let CoalLiqueficationPlant120Sim = new RecipeSimulator(CoalLiqueficationPlant, CoalLiquefication120c)

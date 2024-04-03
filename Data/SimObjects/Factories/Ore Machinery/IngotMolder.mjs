@@ -20,7 +20,7 @@ let LiquidAluminiumRecipe = new AdvSimRecipe([["LiquidAluminium", 2]], [["Alumin
 let LiquidGlassRecipe = new AdvSimRecipe([["LiquidGlass", 2]], [["Glass", 1]], 2, "second", [150, "MF", 1, "second"])
 
 
-let IngotMolder = new AbstractMachine(150, 4, 2, [25, "kMF"], [150, "PP/H"])
+let IngotMolder = new AbstractMachine("Ingot Molder", 150, 4, 2, [25, "kMF"], [150, "PP/H"])
 
 
 export let IngotMolderCopperSim = new RecipeSimulator(IngotMolder, LiquidCopperRecipe)

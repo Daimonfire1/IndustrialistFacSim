@@ -6,6 +6,6 @@ import { MamyFluxStream } from "../../../BaseDefinitions/PowerDefs/MamyFluxStrea
 
 let SteamTurbinePower = new MamyFluxStream(-1.95, "kMF", 1, "second")
 let SteamTurbineRecipe = new AdvSimRecipe([[0.3, "Steam"]], [[0.009, "Water"]], 1, "second", SteamTurbinePower)
-let SteamTurbine = new AbstractMachine(40, 1, 2, [100, "kMF"], [0, "PP/H"])
+let SteamTurbine = new AbstractMachine("Steam Turbine", 40, 1, 2, [100, "kMF"], [0, "PP/H"])
 
 export let SteamTurbineSim = new RecipeSimulator(SteamTurbine, SteamTurbineRecipe)

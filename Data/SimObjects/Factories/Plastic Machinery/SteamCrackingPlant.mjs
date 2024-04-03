@@ -23,7 +23,7 @@ let HeavyOilCracking240 = new AdvSimRecipe([["HeavyOil", 20],["Steam240c",150]],
 let HeavyOilCracking300 = new AdvSimRecipe([["HeavyOil", 20],["Steam300c",150]], [["LightOil", 12],["Residue",8]], 20, "second", [60, "kMF", 1, "second"])
 let HeavyOilCracking400 = new AdvSimRecipe([["HeavyOil", 20],["Steam400c",150]], [["LightOil", 12],["Residue",8]], 10, "second", [60, "kMF", 1, "second"])
     
-let SteamCrackingPlant = new AbstractMachine(150000, 8, 8, [1, "MMF"], [432, "PP/H"])
+let SteamCrackingPlant = new AbstractMachine("Steam Cracking Plant", 150000, 8, 8, [1, "MMF"], [432, "PP/H"])
     
 export let CrudeOilCracking100Sim = new RecipeSimulator(SteamCrackingPlant, CrudeOilCracking100)
 export let CrudeOilCracking120Sim = new RecipeSimulator(SteamCrackingPlant, CrudeOilCracking120)
