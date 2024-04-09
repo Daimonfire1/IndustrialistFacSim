@@ -3,8 +3,8 @@ import { SimRecipe } from "./BasicRecipeDef.mjs";
 
 
 export class AdvSimRecipe extends SimRecipe{
-    constructor(InputItems, OutputItems, CycleTime, Unit, PowerDef){
-        super(InputItems, OutputItems, CycleTime, Unit)
+    constructor(InputItems, OutputItems, CycleTime, Unit, PowerDef, ScaleFactor){
+        super(InputItems, OutputItems, CycleTime, Unit, ScaleFactor)
         if(PowerDef instanceof MamyFluxStream){
             this.PowerDef = PowerDef
         }else if(PowerDef instanceof Array){

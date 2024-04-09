@@ -1,7 +1,7 @@
 import { IOStream } from "../ItemStreams/AdvItemStreams.mjs";
 
 export class SimRecipe{
-    constructor(InputItems, OutputItems, CycleTime, Unit){
+    constructor(InputItems, OutputItems, CycleTime, Unit, ScaleFactor){
         this.InputItems = Array.from(InputItems, (StreamValues) => 
             new IOStream(StreamValues[0],StreamValues[1],CycleTime,Unit));
         this.OutputItems = Array.from(OutputItems, (StreamValues) => 

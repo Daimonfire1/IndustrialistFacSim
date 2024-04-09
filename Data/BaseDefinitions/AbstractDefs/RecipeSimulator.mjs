@@ -1,9 +1,13 @@
 
 
 export class RecipeSimulator{
-    constructor(MachineDef, RecipeDef){
+    constructor(MachineDef, RecipeDef, ScaleFactor){
         this.MachineDef = MachineDef
         this.RecipeDef = RecipeDef
+        if(ScaleFactor==undefined){
+            ScaleFactor = 1
+        }
+        this.ScaleFactor = ScaleFactor
     }
 
     getMachineDef(){
@@ -14,7 +18,10 @@ export class RecipeSimulator{
     }
 
     getRecipeDef(){
-        return this.RecipeDef
+        if(this.ScaleFactor == 1){
+			return this.RecipeDef
+        }
+        
     }
     setRecipeDef(RecipeDef){
         this.RecipeDef = RecipeDef
@@ -25,5 +32,12 @@ export class RecipeSimulator{
     }
     hasItemExport(ItemDef){
         return this.RecipeDef.getOutputItems(ItemDef)
+    }
+
+    getScale(){
+        return this.ScaleFactor
+    }
+    setScale(Scale){
+        this.ScaleFactor = Scale
     }
 }

@@ -8,3 +8,10 @@ export function stringsearch(array, searchterm, searchpos) {
     }
     return array.filter((el) =>el[searchpos].toString().toLowerCase().includes(searchterm.toLowerCase()))
 }
+
+export function verifyOptParam(Param, defaultvalue){
+    if(Param==undefined){
+        return defaultvalue
+    }
+    return Param
+}

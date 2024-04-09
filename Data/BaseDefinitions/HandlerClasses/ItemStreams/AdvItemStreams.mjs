@@ -1,15 +1,17 @@
+import { verifyOptParam } from "../../../Util/UtilFunctions.mjs";
 import { TimeUnits } from "../../../Values/Modifiers.mjs";
 import { Item } from "./Item.mjs";
 
 export class IOStream extends Item
 {
-    constructor(ItemDef, Amount, CycleTime, Unit){
+    constructor(ItemDef, Amount, CycleTime, Unit, Scale){
         if(Amount instanceof String){
             let _temp = ItemDef
             ItemDef = Amount
             Amount = _temp
         }
-        super(ItemDef, Amount)
+        super(ItemDef, Amount, Scale)
+        this.Scale = verifyOptParam(Scale, 1)
         this.Flow = Amount / (CycleTime * TimeUnits[Unit])
     }
 
@@ -22,7 +24,7 @@ export class IOStream extends Item
     }
 
     getItemFlow(CycleTime, Unit){
-        return this.Flow * this.#TimePerUnit(CycleTime, Unit)
+        return this.Flow * this.#TimePerUnit(CycleTime, Unit) * this.Scale
     }
 
     getMoneyFlow(CycleTime, Unit){

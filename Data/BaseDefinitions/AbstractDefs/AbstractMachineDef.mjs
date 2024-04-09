@@ -17,7 +17,7 @@ export class AbstractMachine{
                 throw new Error("Array of PowerCapacity does not have the right length (2)")
             }
         }else{
-            throw new Error("PowerCapacity has invalid Args! Either provide a MFStream class or a 2-long Array")
+            throw new Error("PowerCapacity has invalid Args! Either provide a MamyFlux class or a 2-long Array")
         }
         this.PollutionDef = PollutionDef
     }
