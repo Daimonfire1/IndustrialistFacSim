@@ -1,10 +1,11 @@
+import { verifyOptParam } from "../../../Util/UtilFunctions.mjs";
 import { MamyFluxStream } from "../../PowerDefs/MamyFluxStream.mjs";
 import { SimRecipe } from "./BasicRecipeDef.mjs";
 
 
 export class AdvSimRecipe extends SimRecipe{
-    constructor(InputItems, OutputItems, CycleTime, Unit, PowerDef, ScaleFactor){
-        super(InputItems, OutputItems, CycleTime, Unit, ScaleFactor)
+    constructor(InputItems, OutputItems, CycleTime, Unit, PowerDef, Scale){
+        super(InputItems, OutputItems, CycleTime, Unit, Scale)
         if(PowerDef instanceof MamyFluxStream){
             this.PowerDef = PowerDef
         }else if(PowerDef instanceof Array){
@@ -16,6 +17,7 @@ export class AdvSimRecipe extends SimRecipe{
         }else{
             throw new Error("PowerDef has invalid Args! Either provide a MFStream class or a 4-long Array")
         }
+        this.Scale = verifyOptParam(Scale, 1)
     }
 
 
@@ -34,6 +36,12 @@ export class AdvSimRecipe extends SimRecipe{
     }
     getPowerDef(){
         return this.PowerDef
+    }
+
+    setScale(Scale){
+        super.setScale(Scale)
+        this.PowerDef.setScale(Scale)
+        this.Scale = Scale
     }
 
 }

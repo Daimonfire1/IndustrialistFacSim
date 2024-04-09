@@ -1,10 +1,12 @@
 import { MFConvert } from "../../Util/UnitConverters.mjs";
+import { verifyOptParam } from "../../Util/UtilFunctions.mjs";
 
 
 export class MamyFlux{
-    constructor(Amount, Unit){
+    constructor(Amount, Unit, Scale){
         this.Amount = Amount //MFConvert(Amount, Unit, "MF")
         this.Unit = Unit
+        this.Scale = verifyOptParam(Scale, 1)
     }
 
     setAmount(Var1, PotV2){
@@ -18,14 +20,21 @@ export class MamyFlux{
 
     getAmount(PotV1){
         if(PotV1 !== undefined){
-            return MFConvert(this.Amount, this.Unit, PotV1)
+            return MFConvert(this.Amount * this.Scale, this.Unit, PotV1)
         }else{
-			return new MamyFlux(this.Amount, this.Unit)
+			return new MamyFlux(this.Amount, this.Unit, this.Scale)
         }
     }
 
     getUnit(){
         return this.Unit
+    }
+
+    getScale(){
+        return this.Scale
+    }
+    setScale(Scale){
+        this.Scale = Scale
     }
 
 }

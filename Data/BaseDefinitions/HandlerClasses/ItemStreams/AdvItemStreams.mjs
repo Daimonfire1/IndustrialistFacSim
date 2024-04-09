@@ -36,4 +36,5 @@ export class IOStream extends Item
         this.setnewamount(Amount)
         this.#UpdateFlow(Amount, CycleTime, Unit)
     }
+    
 }

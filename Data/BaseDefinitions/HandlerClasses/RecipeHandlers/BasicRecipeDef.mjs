@@ -1,11 +1,13 @@
+import { verifyOptParam } from "../../../Util/UtilFunctions.mjs";
 import { IOStream } from "../ItemStreams/AdvItemStreams.mjs";
 
 export class SimRecipe{
-    constructor(InputItems, OutputItems, CycleTime, Unit, ScaleFactor){
+    constructor(InputItems, OutputItems, CycleTime, Unit, Scale){
         this.InputItems = Array.from(InputItems, (StreamValues) => 
-            new IOStream(StreamValues[0],StreamValues[1],CycleTime,Unit));
+            new IOStream(StreamValues[0],StreamValues[1],CycleTime,Unit, Scale));
         this.OutputItems = Array.from(OutputItems, (StreamValues) => 
-            new IOStream(StreamValues[0],StreamValues[1],CycleTime,Unit));
+            new IOStream(StreamValues[0],StreamValues[1],CycleTime,Unit, Scale));
+        this.Scale = verifyOptParam(Scale, 1)
     }
 
     getMoneyFlowIn(CycleTime, Unit){
@@ -59,6 +61,15 @@ export class SimRecipe{
     updateItems(InputItems, OutputItems, CycleTime, Unit){
         this.setInputItems(InputItems, CycleTime, Unit)
         this.setOutputItems(OutputItems, CycleTime, Unit)
+    }
+
+    getScale(){
+        return this.Scale
+    }
+    setScale(Scale){
+        this.InputItems.forEach(el => el.setScale(Scale))
+        this.OutputItems.forEach(el => el.setScale(Scale))
+        this.Scale = Scale
     }
     
 }

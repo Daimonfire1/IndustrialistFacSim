@@ -25,15 +25,53 @@ function DArrayItemExportSearch(DArray, SearchItem){
     return DArray.filter((el) =>el[1].hasItemExport(SearchItem))
 }
 
+function DArrayItemSearchDirectional(DArray, SearchItem, Direction){
+    if(Direction == "Reverse"){
+        return DArrayItemImportSearch(DArray, SearchItem)
+    }else{
+        return DArrayItemExportSearch(DArray, SearchItem)
+    }
+}
+
 async function InterrogateOptions(OptionsArray, LineReader){
     console.clear()
 	OptionsArray.forEach((el, ind) => {
         console.log(ind.toString()+": "+el[0].toString()+" in machine "+el[1].getMachineDef().getName())
     });
     
-    const answer = await LineReader.question("Choose a recipe via the number")
+    const answer = await LineReader.question("Choose a recipe via the number, or X to cancel")
 
+    if(answer == "x"){
+        return undefined
+    }
     return OptionsArray[answer]
+}
+
+async function productionLine(DArray, ItemStep, LineReader, SearchDirection){
+    const options = DArrayItemSearchDirectional(DArray, ItemStep, SearchDirection)
+    if(!options){
+        return false
+    }
+    return await InterrogateOptions(options, LineReader)
+}
+
+async function recursiveSelection(DArray, MachineSearch, LineReader, SearchDirection){
+    let direopt = undefined
+    if(SearchDirection == "Reverse"){
+        direopt = MachineSearch.getOutputItems()
+    }else{
+        direopt = MachineSearch.getInputItems()
+    }
+    var upwardsPassingArray =[]
+    for (let i = 0; i < direopt.length; i++) {
+        const FurtherMachine = await productionLine(DArray, direopt[i].getItemDef(), LineReader, SearchDirection)
+        
+        if(!FurtherMachine){
+            continue
+        }
+        
+    }
+    
 }
 
 function recursiveParse(SimArray, RecursionDepth){
