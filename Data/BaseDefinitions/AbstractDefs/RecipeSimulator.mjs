@@ -19,9 +19,9 @@ export class RecipeSimulator{
     }
 
     getRecipeDef(){
-        if(this.ScaleFactor == 1){
+        //if(this.ScaleFactor == 1){
 			return deepCopy(this.RecipeDef)
-        }
+        //}
         
     }
     setRecipeDef(RecipeDef){

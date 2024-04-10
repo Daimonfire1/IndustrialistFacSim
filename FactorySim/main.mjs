@@ -22,7 +22,7 @@ import { GeneralSimRunner } from './SimSimSims/GeneralSim.mjs';
 
 console.log("Unpacking Data...")
 
-const DataArray = [[new String(), new RecipeSimulator()]]
+const DataArray = [] //[new String(), new RecipeSimulator()]]
  
 for (const ArraySimPair of Object.entries(BatchedSimData)) {
     if(ArraySimPair[1] instanceof RecipeSimulator){

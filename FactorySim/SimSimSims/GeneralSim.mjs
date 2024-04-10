@@ -1,3 +1,5 @@
+import { arrayBuffer } from "stream/consumers"
+import { deepCopy } from "../../Data/Util/UtilFunctions.mjs"
 
 
 export async function GeneralSimRunner(DataImport, LineReader) {
@@ -8,12 +10,14 @@ export async function GeneralSimRunner(DataImport, LineReader) {
     console.log("Simply search for a name")
 
     const answer = await LineReader.question("Simply search for a name")
-
-    const testarr = await recursiveSelection(DataImport, answer, LineReader, "Normal")
+    console.log(DArrayMachineNameSearch(DataImport, answer))
+    const testarr = await recursiveSelection(DataImport, DArrayMachineNameSearch(DataImport, answer), LineReader, "Normal")
     console.log(testarr)
 }
 
 function DArrayMachineNameSearch(DArray, SearchTerm){
+    let DArray2 = deepCopy(DArray)
+
     return DArray.filter((el) =>el[1].getMachineDef().getName().toLowerCase().includes(SearchTerm.toLowerCase()))
 }
 
@@ -55,13 +59,18 @@ async function productionLine(DArray, ItemStep, LineReader, SearchDirection){
     return await InterrogateOptions(options, LineReader)
 }
 
-async function recursiveSelection(DArray, MachineSearch, LineReader, SearchDirection){
+async function recursiveSelection(DArray, MachineSearchRe, LineReader, SearchDirection){
     let direopt = undefined
+    console.log("MSRe: "+MachineSearchRe)
+    let MachineSearch = deepCopy(MachineSearchRe[0][1].getRecipeDef())
+    console.log(MachineSearch)
     if(SearchDirection == "Reverse"){
-        direopt = MachineSearch.getOutputItems()
+        direopt = deepCopy(MachineSearch.getOutputItems())
     }else{
-        direopt = MachineSearch.getInputItems()
+        console.log("MS: "+MachineSearch)
+        direopt = deepCopy(MachineSearch.getInputItems())
     }
+    console.log("direopt: "+direopt)
     var upwardsPassingArray =[]
     for (let i = 0; i < direopt.length; i++) {
         let FurtherMachine = await productionLine(DArray, direopt[i].getItemDef(), LineReader, SearchDirection)
@@ -71,7 +80,7 @@ async function recursiveSelection(DArray, MachineSearch, LineReader, SearchDirec
         }
 
         const NeededFlow = direopt[i].getItemFlow(1, "second")
-        const GivenFlow = undefined
+        var GivenFlow = undefined
         if(SearchDirection == "Reverse"){
             GivenFlow = FurtherMachine.getInputItems(direopt[i].getItemDef()).getItemFlow(1, "second")
         }else{
