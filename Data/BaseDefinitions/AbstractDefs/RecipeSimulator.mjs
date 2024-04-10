@@ -1,3 +1,4 @@
+import { Console } from "console"
 
 
 export class RecipeSimulator{
@@ -18,19 +19,18 @@ export class RecipeSimulator{
     }
 
     getRecipeDef(){
-        if(this.ScaleFactor == 1){
-			return this.RecipeDef
-        }
-        
+        return this.RecipeDef
     }
     setRecipeDef(RecipeDef){
         this.RecipeDef = RecipeDef
     }
 
     hasItemImport(ItemDef){
+        console.log(this.RecipeDef)
         return this.RecipeDef.getInputItems(ItemDef)
     }
     hasItemExport(ItemDef){
+        console.log(this.RecipeDef)
         return this.RecipeDef.getOutputItems(ItemDef)
     }
 
@@ -38,6 +38,7 @@ export class RecipeSimulator{
         return this.ScaleFactor
     }
     setScale(Scale){
+        this.RecipeDef.setScale(Scale)
         this.ScaleFactor = Scale
     }
 }

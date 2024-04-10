@@ -25,7 +25,7 @@ console.log("Unpacking Data...")
 const DataArray = [[new String(), new RecipeSimulator()]]
  
 for (const ArraySimPair of Object.entries(BatchedSimData)) {
-    if(ArraySimPair[0] instanceof String & ArraySimPair[1] instanceof RecipeSimulator){
+    if(ArraySimPair[1] instanceof RecipeSimulator){
     	DataArray.push([ArraySimPair[0],ArraySimPair[1]])
     }
 }

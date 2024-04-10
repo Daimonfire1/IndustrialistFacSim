@@ -29,7 +29,7 @@ let LargeDieselGenRecipeNormalFilteredWaterBoost = new AdvSimRecipe([["Diesel", 
 
 let LargeDieselGenRecipeRefinedFilteredWaterBoost = new AdvSimRecipe([["RefinedDiesel", 7],["MachineOil", 1],["FilteredWater", 7.5]], [], 10, "second", [-6, "MMF", 1, "second"])
 
-let LargeDieselGen = new AbstractMachine("Large Diesel Generator">, 1000000, 14, 8, [75, "MMF"], [2648, "PP/H"])   //POLLUTION NOT CONFIRMED
+let LargeDieselGen = new AbstractMachine("Large Diesel Generator", 1000000, 14, 8, [75, "MMF"], [2648, "PP/H"])   //POLLUTION NOT CONFIRMED
 
 export let LargeDieselGenSimCrude = new RecipeSimulator(LargeDieselGen, LargeDieselGenRecipeCrude)
 export let LargeDieselGenSimPoor = new RecipeSimulator(LargeDieselGen, LargeDieselGenRecipePoor)
