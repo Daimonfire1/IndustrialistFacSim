@@ -9,8 +9,8 @@ export async function GeneralSimRunner(DataImport, LineReader) {
 
     const answer = await LineReader.question("Simply search for a name")
 
-    DataImport.find
-    
+    const testarr = await recursiveSelection(DataImport, answer, LineReader, "Normal")
+    console.log(testarr)
 }
 
 function DArrayMachineNameSearch(DArray, SearchTerm){
@@ -18,7 +18,7 @@ function DArrayMachineNameSearch(DArray, SearchTerm){
 }
 
 function DArrayItemImportSearch(DArray, SearchItem){
-    return DArray.filter((el) =>el[1].hasItemExport(SearchItem))
+    return DArray.filter((el) =>el[1].hasItemImport(SearchItem))
 }
 
 function DArrayItemExportSearch(DArray, SearchItem){
@@ -64,14 +64,28 @@ async function recursiveSelection(DArray, MachineSearch, LineReader, SearchDirec
     }
     var upwardsPassingArray =[]
     for (let i = 0; i < direopt.length; i++) {
-        const FurtherMachine = await productionLine(DArray, direopt[i].getItemDef(), LineReader, SearchDirection)
+        let FurtherMachine = await productionLine(DArray, direopt[i].getItemDef(), LineReader, SearchDirection)
         
         if(!FurtherMachine){
             continue
         }
-        
+
+        const NeededFlow = direopt[i].getItemFlow(1, "second")
+        const GivenFlow = undefined
+        if(SearchDirection == "Reverse"){
+            GivenFlow = FurtherMachine.getInputItems(direopt[i].getItemDef()).getItemFlow(1, "second")
+        }else{
+            GivenFlow = FurtherMachine.getOutputItems(direopt[i].getItemDef()).getItemFlow(1, "second")
+        }
+        let Scale = NeededFlow / GivenFlow
+
+        FurtherMachine.setScale(Scale)
+
+        let recursiveData = await recursiveSelection(DArray, FurtherMachine, LineReader, SearchDirection)
+
+        upwardsPassingArray.push(recursiveData)
     }
-    
+    return [MachineSearch, upwardsPassingArray]
 }
 
 function recursiveParse(SimArray, RecursionDepth){

@@ -18,6 +18,7 @@ console.log("Fetching all definitions")
 
 import * as BatchedSimData from "../Bundler.mjs";
 import { RecipeSimulator } from '../Data/BaseDefinitions/AbstractDefs/RecipeSimulator.mjs';
+import { GeneralSimRunner } from './SimSimSims/GeneralSim.mjs';
 
 console.log("Unpacking Data...")
 
@@ -32,7 +33,7 @@ for (const ArraySimPair of Object.entries(BatchedSimData)) {
 console.log("Unpacked and restructured "+DataArray.length+" batches of Data")
 var chosesim = false
 
-DataArray.find
+//DataArray.find
 //while(true){
     //console.clear()
 
@@ -56,7 +57,7 @@ DataArray.find
 
     resolveproduction[0][1].getRecipeDef().getPowerDef()
     
-    DataArray[0][1].
+    await GeneralSimRunner(DataArray, rl)
 
 //}
 
