@@ -1,4 +1,4 @@
-import { verifyOptParam } from "../../../Util/UtilFunctions.mjs";
+import { deepCopy, verifyOptParam } from "../../../Util/UtilFunctions.mjs";
 import { MamyFluxStream } from "../../PowerDefs/MamyFluxStream.mjs";
 import { SimRecipe } from "./BasicRecipeDef.mjs";
 
@@ -7,7 +7,7 @@ export class AdvSimRecipe extends SimRecipe{
     constructor(InputItems, OutputItems, CycleTime, Unit, PowerDef, Scale){
         super(InputItems, OutputItems, CycleTime, Unit, Scale)
         if(PowerDef instanceof MamyFluxStream){
-            this.PowerDef = PowerDef
+            this.PowerDef = deepCopy(PowerDef)
         }else if(PowerDef instanceof Array){
             if(PowerDef.length == 4){
                 this.PowerDef = new MamyFluxStream(PowerDef[0], PowerDef[1], PowerDef[2], PowerDef[3])
@@ -23,7 +23,7 @@ export class AdvSimRecipe extends SimRecipe{
 
     setPowerDef(PowerDef){
         if(PowerDef instanceof MamyFluxStream){
-            this.PowerDef = PowerDef
+            this.PowerDef = deepCopy(PowerDef)
         }else if(PowerDef instanceof Array){
             if(PowerDef.length == 4){
                 this.PowerDef = new MamyFluxStream(PowerDef[0], PowerDef[1], PowerDef[2], PowerDef[3])
@@ -35,7 +35,7 @@ export class AdvSimRecipe extends SimRecipe{
         }
     }
     getPowerDef(){
-        return this.PowerDef
+        return deepCopy(this.PowerDef)
     }
 
     setScale(Scale){

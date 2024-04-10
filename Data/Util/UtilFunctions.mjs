@@ -15,3 +15,7 @@ export function verifyOptParam(Param, defaultvalue){
     }
     return Param
 }
+
+export function deepCopy(origobj){
+    return Object.assign(Object.create(Object.getPrototypeOf(origobj)), origobj)
+}

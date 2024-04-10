@@ -1,4 +1,4 @@
-import { verifyOptParam } from "../../../Util/UtilFunctions.mjs";
+import { deepCopy, verifyOptParam } from "../../../Util/UtilFunctions.mjs";
 import { IOStream } from "../ItemStreams/AdvItemStreams.mjs";
 
 export class SimRecipe{
@@ -26,12 +26,12 @@ export class SimRecipe{
         if(ItemDef !== undefined){
             for (const InStream of this.InputItems) {
                 if (InStream.getItemDef() == ItemDef) {
-                    return InStream
+                    return deepCopy(InStream)
                 }
             }
             return false
         }else{
-            return this.InputItems
+            return deepCopy(this.InputItems)
         }
     }
 
@@ -39,12 +39,12 @@ export class SimRecipe{
         if(ItemDef !== undefined){
             for (const OutStream of this.OutputItems) {
                 if (OutStream.getItemDef() == ItemDef) {
-                    return OutStream
+                    return deepCopy(OutStream)
                 }
             }
             return false
         }else{
-            return this.OutputItems
+            return deepCopy(this.OutputItems)
         }
     }
 

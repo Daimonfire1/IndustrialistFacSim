@@ -1,9 +1,10 @@
+import { deepCopy } from "../../Util/UtilFunctions.mjs"
 
 
 export class RecipeSimulator{
     constructor(MachineDef, RecipeDef, ScaleFactor){
-        this.MachineDef = MachineDef
-        this.RecipeDef = RecipeDef
+        this.MachineDef = deepCopy(MachineDef)
+        this.RecipeDef = deepCopy(RecipeDef)
         if(ScaleFactor==undefined){
             ScaleFactor = 1
         }
@@ -11,27 +12,27 @@ export class RecipeSimulator{
     }
 
     getMachineDef(){
-        return this.MachineDef
+        return deepCopy(this.MachineDef)
     }
 	setMachineDef(MachineDef){
-        this.MachineDef = MachineDef
+        this.MachineDef = deepCopy(MachineDef)
     }
 
     getRecipeDef(){
         if(this.ScaleFactor == 1){
-			return this.RecipeDef
+			return deepCopy(this.RecipeDef)
         }
         
     }
     setRecipeDef(RecipeDef){
-        this.RecipeDef = RecipeDef
+        this.RecipeDef = deepCopy(RecipeDef)
     }
 
     hasItemImport(ItemDef){
-        return this.RecipeDef.getInputItems(ItemDef)
+        return deepCopy(this.RecipeDef.getInputItems(ItemDef))
     }
     hasItemExport(ItemDef){
-        return this.RecipeDef.getOutputItems(ItemDef)
+        return deepCopy(this.RecipeDef.getOutputItems(ItemDef))
     }
 
     getScale(){

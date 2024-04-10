@@ -1,3 +1,4 @@
+import { deepCopy } from "../../Util/UtilFunctions.mjs"
 import { MamyFlux } from "../PowerDefs/MamyFlux.mjs"
 
 
@@ -9,7 +10,7 @@ export class AbstractMachine{
         this.Length = Length
         this.Surface = Width * Length
         if(PowerCapacity instanceof MamyFlux){
-            this.PowerCapacity = PowerCapacity
+            this.PowerCapacity = deepCopy(PowerCapacity)
         }else if(PowerCapacity instanceof Array){
             if(PowerCapacity.length == 2){
                 this.PowerCapacity = new MamyFlux(PowerCapacity[0], PowerCapacity[1])
@@ -19,7 +20,7 @@ export class AbstractMachine{
         }else{
             throw new Error("PowerCapacity has invalid Args! Either provide a MamyFlux class or a 2-long Array")
         }
-        this.PollutionDef = PollutionDef
+        this.PollutionDef = deepCopy(PollutionDef) 
     }
 
     #recalcSurface(){
@@ -46,11 +47,11 @@ export class AbstractMachine{
     }
 
     getPowerCapacity(Unit){
-        return this.PowerCapacity.getAmount(Unit)
+        return deepCopy(this.PowerCapacity.getAmount(Unit))
     }
     setPowerCapacity(PowerCapacity){
         if(PowerCapacity instanceof MamyFlux){
-            this.PowerCapacity = PowerCapacity
+            this.PowerCapacity = deepCopy(PowerCapacity)
         }else if(PowerCapacity instanceof Array){
             if(PowerCapacity.length == 2){
                 this.PowerCapacity = new MamyFlux(PowerCapacity[0], PowerCapacity[1])
@@ -63,9 +64,9 @@ export class AbstractMachine{
     }
 
     getPollutionDef(){
-        return this.PollutionDef
+        return deepCopy(this.PollutionDef) 
     }
     setPollutionDef(PollutionDef){
-        this.PollutionDef = PollutionDef
+        this.PollutionDef = deepCopy(PollutionDef)
     }
 }
