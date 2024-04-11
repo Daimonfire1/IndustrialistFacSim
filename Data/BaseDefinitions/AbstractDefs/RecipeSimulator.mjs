@@ -29,10 +29,10 @@ export class RecipeSimulator{
     }
 
     hasItemImport(ItemDef){
-        return deepCopy(this.RecipeDef.getInputItems(ItemDef))
+        return this.RecipeDef.getInputItems(ItemDef)
     }
     hasItemExport(ItemDef){
-        return deepCopy(this.RecipeDef.getOutputItems(ItemDef))
+        return this.getRecipeDef().getOutputItems(ItemDef)
     }
 
     getScale(){

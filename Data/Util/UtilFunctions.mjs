@@ -17,5 +17,8 @@ export function verifyOptParam(Param, defaultvalue){
 }
 
 export function deepCopy(origobj){
+    if(origobj instanceof Array){
+        return Array.from(origobj)
+    }
     return Object.assign(Object.create(Object.getPrototypeOf(origobj)), origobj)
 }

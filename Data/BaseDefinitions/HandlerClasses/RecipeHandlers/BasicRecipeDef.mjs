@@ -31,20 +31,21 @@ export class SimRecipe{
             }
             return false
         }else{
-            return deepCopy(this.InputItems)
+            return this.InputItems
         }
     }
 
     getOutputItems(ItemDef){
         if(ItemDef !== undefined){
             for (const OutStream of this.OutputItems) {
-                if (OutStream.getItemDef() == ItemDef) {
+                //console.log(OutStream.getItemDef() == ItemDef)
+                if(OutStream.getItemDef() == ItemDef) {
                     return deepCopy(OutStream)
                 }
             }
             return false
         }else{
-            return deepCopy(this.OutputItems)
+            return Array.from(this.OutputItems)
         }
     }
 

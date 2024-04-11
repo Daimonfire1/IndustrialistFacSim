@@ -11,20 +11,19 @@ export class IOStream extends Item
             Amount = _temp
         }
         super(ItemDef, Amount, Scale)
-        this.Scale = verifyOptParam(Scale, 1)
         this.Flow = Amount / (CycleTime * TimeUnits[Unit])
     }
 
-    #TimePerUnit(CycleTime, Unit){
+    TimePerUnit(CycleTime, Unit){
         return CycleTime * TimeUnits[Unit]
     }
 
     #UpdateFlow(Amount, CycleTime, Unit){
-        this.Flow = Amount * this.#TimePerUnit(CycleTime, Unit)
+        this.Flow = Amount * this.TimePerUnit(CycleTime, Unit)
     }
 
     getItemFlow(CycleTime, Unit){
-        return this.Flow * this.#TimePerUnit(CycleTime, Unit) * this.Scale
+        return this.Flow * this.TimePerUnit(CycleTime, Unit) * this.Scale
     }
 
     getMoneyFlow(CycleTime, Unit){
