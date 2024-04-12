@@ -1,6 +1,7 @@
 import { arrayBuffer } from "stream/consumers"
 import { deepCopy } from "../../Data/Util/UtilFunctions.mjs"
 import { RecipeSimulator } from "../../Data/BaseDefinitions/AbstractDefs/RecipeSimulator.mjs"
+import { DEFAULT_CIPHERS } from "tls"
 
 
 export async function GeneralSimRunner(DataImport, LineReader) {
@@ -93,9 +94,9 @@ async function recursiveSelection(DArray, MachineSearchRe, LineReader, SearchDir
         var GivenFlow = undefined
         console.log(FurtherMachineRec)
         if(SearchDirection == "Reverse"){
-            GivenFlow = FurtherMachineRec.getInputItems(direopt[i].getItemDef()).getItemFlow(1, "second")
+            GivenFlow = FurtherMachineRec.getInputItems(direopt[i].getItemDef()).getItemFlow(1, "second") / FurtherMachine.getScale()
         }else{
-            GivenFlow = FurtherMachineRec.getOutputItems(direopt[i].getItemDef()).getItemFlow(1, "second")
+            GivenFlow = FurtherMachineRec.getOutputItems(direopt[i].getItemDef()).getItemFlow(1, "second") / FurtherMachine.getScale()
         }
         let Scale = NeededFlow / GivenFlow
 
@@ -115,12 +116,15 @@ function recursiveParse(SimArray, RecursionDepth){
     
 }
 
-function recursivePrint(DataArray){
+function recursivePrint(DataArray, DepthPass){
+    if(DepthPass == undefined){
+        DepthPass = 0
+    }
     DataArray.forEach(el => {
         if(el instanceof Array){
-            recursivePrint(el)
+            recursivePrint(el, DepthPass++)
         }else{
-            console.log(el)
+            console.log(Depthpass.toString() + ": " + el)
         }
     });
 }
