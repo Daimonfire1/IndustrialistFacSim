@@ -95,9 +95,9 @@ async function recursiveSelection(DArray, MachineSearchRe, LineReader, SearchDir
         var GivenFlow = undefined
         console.log(FurtherMachineRec)
         if(SearchDirection == "Reverse"){
-            GivenFlow = FurtherMachineRec.getInputItems(direopt[i].getItemDef()).getItemFlow(1, "second") / FurtherMachine.getScale()
+            GivenFlow = FurtherMachineRec.getInputItems(direopt[i].getItemDef()).getItemFlow(1, "second") / FurtherMachine[1].getScale()
         }else{
-            GivenFlow = FurtherMachineRec.getOutputItems(direopt[i].getItemDef()).getItemFlow(1, "second") / FurtherMachine.getScale()
+            GivenFlow = FurtherMachineRec.getOutputItems(direopt[i].getItemDef()).getItemFlow(1, "second") / FurtherMachine[1].getScale()
         }
         let Scale = NeededFlow / GivenFlow
 
@@ -125,7 +125,8 @@ function recursivePrint(DataArray, DepthPass){
         if(el instanceof Array){
             recursivePrint(el, DepthPass++)
         }else{
-            console.log(DepthPass.toString() + ": " + el)
+            console.log(DepthPass.toString() + ": ")
+            console.log(el)
         }
     });
 }

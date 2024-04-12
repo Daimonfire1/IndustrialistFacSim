@@ -11,7 +11,7 @@ let RawIronGrind = new AdvSimRecipe([["RawIron", 3.2]], [["IronPowder", 1.9]], 1
 
 let RawCopperGrind = new AdvSimRecipe([["RawCopper", 1]], [["CopperPowder", 2.66]], 12, "second", [33, "kMF", 1, "second"])
 
-let GravelGrind = new AdvSimRecipe([["Gravel", 8]], [["Alumina", 10]], 12, "second", [33, "kMF", 1, "second"])
+let GravelGrind = new AdvSimRecipe([["Gravel", 8]], [["Sand", 10]], 12, "second", [33, "kMF", 1, "second"])
 
 let BauxiteGrind = new AdvSimRecipe([["BauxiteResidue", 8]], [["BauxiteCrushed", 6]], 12, "second", [33, "kMF", 1, "second"])
 
