@@ -125,7 +125,7 @@ function recursivePrint(DataArray, DepthPass){
         if(el instanceof Array){
             recursivePrint(el, DepthPass++)
         }else{
-            console.log(Depthpass.toString() + ": " + el)
+            console.log(DepthPass.toString() + ": " + el)
         }
     });
 }
