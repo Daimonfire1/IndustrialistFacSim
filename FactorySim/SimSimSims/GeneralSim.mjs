@@ -1,22 +1,37 @@
-import { arrayBuffer } from "stream/consumers"
 import { deepCopy } from "../../Data/Util/UtilFunctions.mjs"
 import { RecipeSimulator } from "../../Data/BaseDefinitions/AbstractDefs/RecipeSimulator.mjs"
-import { DEFAULT_CIPHERS } from "tls"
+import fs from "node:fs"
 
 
-export async function GeneralSimRunner(DataImport, LineReader) {
+export async function GeneralSimRunner(DataImport, LineReader, SimTypeData) {
 
     //console.clear()
+    var seldir = "Normal"
+    if(SimTypeData[0]=="1"){seldir = "Reverse"}
+
     console.log("Reroute to G-Sim module complete, Aloha o/")
     console.log("Which machine should be the focus of this simulation?")
     console.log("Simply search for a name")
+
+
+    
     const answer = await LineReader.question("Simply search for a name")
 	var go = DArrayMachineNameSearch(DataImport, answer)
     console.log(go)
     go = await InterrogateOptions(go, LineReader)
-    const testarr = await recursiveSelection(DataImport, go, LineReader, "Normal")
+    const testarr = await recursiveSelection(DataImport, go, LineReader, seldir)
     console.log("If you see this, something went wrong")
     recursivePrint(testarr)
+    
+	const content = JSON.stringify(testarr, null, '\n')
+    
+	fs.writeFile('../IFSOut.json', content, err => {
+  		if (err) {
+ 		   console.error(err);
+ 		} else {
+    		// file written successfully
+  		}
+	})
 }
 
 function DArrayMachineNameSearch(DArray, SearchTerm){
