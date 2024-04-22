@@ -91,7 +91,8 @@ async function recursiveSelection(DArray, MachineSearchRe, LineReader, SearchDir
         MachineSearch = MachineSearchRe[1].getRecipeDef()
     }
     if(SearchDirection == "Reverse"){
-        direopt = deepCopy(MachineSearch.getOutputItems())
+        direopt = MachineSearch.getOutputItems()
+        direopt = deepCopy(direopt)
     }else{
         direopt = MachineSearch.getInputItems()
         direopt = deepCopy(direopt)
